@@ -1,24 +1,44 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| email              | string              | null: false             |
+| password           | string              | null: false             |
+| nickname           | string              | null: false             |
+| profile            | text                | null: false             |
+| occupation         | text                | null: false             |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+* has_many :scores
+* has_many :comments
 
-* Database creation
+## scores table
 
-* Database initialization
+| Column                              | Type       | Options           |
+|-------------------------------------|------------|-------------------|
+| title                               | string     | null: false       |
+| score                               | integer    | null: false       |
+| ranking                             | integer    | null: false       |
+| user                                | references | foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :comments
 
-* Deployment instructions
+## comments table
 
-* ...
+| Column      | Type       | Options           |
+|-------------|------------|-------------------|
+| text        | text       | null: false       |
+| score       | references | foreign_key: true |
+| user        | references | foreign_key: true |
+
+### Association
+
+- belongs_to :score
+- belongs_to :user
