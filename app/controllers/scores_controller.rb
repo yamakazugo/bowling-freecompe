@@ -18,6 +18,9 @@ class ScoresController < ApplicationController
 
   def show
     @score = Score.find(params[:id])
+    @comment = Comment.create
+    @comments = Comment.all
+   
   end  
 
   def edit
@@ -39,10 +42,12 @@ class ScoresController < ApplicationController
     redirect_to root_path
   end  
 
-end
 
-private
 
-  def score_params
+  private
+
+   def score_params
     params.require(:score).permit(:title, :score, :ranking, :image).merge(user_id: current_user.id)
+   end
+
   end
