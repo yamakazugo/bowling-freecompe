@@ -8,4 +8,8 @@ class User < ApplicationRecord
    validates :profile
    validates :occupation
   end
+
+  has_many :scores
+  
+
 end
