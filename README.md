@@ -8,7 +8,7 @@
 | password           | string              | null: false             |
 | nickname           | string              | null: false             |
 | profile            | text                | null: false             |
-| occupation         | text                | null: false             |
+| occupation         | integer             | null: false             |
 
 
 ### Association
