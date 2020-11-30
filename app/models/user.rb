@@ -10,6 +10,7 @@ class User < ApplicationRecord
   end
 
   has_many :scores
+  has_many :comments
   
 
 end
