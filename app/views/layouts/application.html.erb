@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProtoSpace</title>
+    <title>Free Time Competition</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,13 +15,15 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to image_tag("logo.png", class: :logo), root_path %>
+            <%= link_to image_tag("logo2.png", class: :logo), root_path %>
           </div>
           
           <% if user_signed_in? %>
              <div class="nav__right"> 
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+               <% if current_user.occupation_id == 2 %>
                <%= link_to "Your Score", new_score_path, class: :nav__btn %>
+               <% end %>
              </div> 
           <% else %>
             <div class="nav__right">
@@ -40,7 +42,7 @@
     </header>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
+      <p class="copyright">Copyright © Free Time Competition All rights reserved.</p>
     </footer>
   </body>
 </html>

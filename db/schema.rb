@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_055552) do
   end
 
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.integer "schedule_id", null: false
     t.integer "score", null: false
-    t.integer "ranking", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_055552) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "profile", null: false
-    t.text "occupation", null: false
+    t.text "profile_id", null: false
+    t.integer "occupation_id", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

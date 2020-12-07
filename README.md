@@ -6,9 +6,9 @@
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
 | password           | string              | null: false             |
-| nickname           | string              | null: false             |
-| profile            | text                | null: false             |
-| occupation         | integer             | null: false             |
+| name               | string              | null: false             |
+| profile_id         | integer             | null: false             |
+| occupation_id      | integer             | null: false             |
 
 
 ### Association
@@ -20,10 +20,10 @@
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
-| title                               | string     | null: false       |
+| schedule_id                         | integer    | null: false       |
 | score                               | integer    | null: false       |
-| ranking                             | integer    | null: false       |
 | user                                | references | foreign_key: true |
+
 
 ### Association
 
