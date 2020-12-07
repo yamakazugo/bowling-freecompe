@@ -3,8 +3,15 @@ class ScoresController < ApplicationController
     @scores = Score.all.order(score: :DESC)
   end
 
+  def top
+    @scores = Score.all.order(score: :DESC)
+  end
+
   def new
     @score = Score.new
+    if current_user.occupation_id != 2
+      redirect_to root_path
+    end
   end
 
   def create
@@ -20,7 +27,6 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
     @comment = Comment.create
     @comments = Comment.all
-   
   end  
 
   def edit
@@ -45,9 +51,8 @@ class ScoresController < ApplicationController
 
 
   private
-
-   def score_params
-    params.require(:score).permit(:title, :score, :ranking, :image).merge(user_id: current_user.id)
-   end
-
+  def score_params
+    params.require(:score).permit(:schedule_id, :score, :image).merge(user_id: current_user.id)
   end
+
+end

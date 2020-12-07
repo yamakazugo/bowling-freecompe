@@ -5,9 +5,10 @@ class Score < ApplicationRecord
 
   
   with_options presence: true do
-   validates :title
-   validates :score
-   validates :ranking
+   validates :schedule_id, numericality: { other_than: 1 }
+   validates :score, inclusion: {in: (1..300)}
   end
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :schedule
   
 end
