@@ -1,10 +1,18 @@
 <main class="main">
+  
+
+ </div>
   <div class="inner">
-    <div class="card__wrapper">
+     <div class="card__wrapper">
       
-      <%= render partial: 'score', collection: @scores %>
-    </div>
-    <%# <%= image_tag "yellow_chair.jpg" %> 
+       <%= render partial: 'score', collection: @scores %>
+      </div>
+      <%# <%= image_tag "yellow_chair.jpg" %> 
   </div>
+  
+
+  <%= paginate @scores %>
+  
+ 
   
 </main>

@@ -1,6 +1,8 @@
 class ScoresController < ApplicationController
+  
+
   def index
-    @scores = Score.all.order(score: :DESC)
+    @scores = Score.all.order(score: :DESC).page(params[:page]).per(3)
   end
 
   def top

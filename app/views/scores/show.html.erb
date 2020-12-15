@@ -27,6 +27,7 @@
             <%# <%= @score.ranking %> 
           <%# /</p> %>
         <%# </div> %>
+        
       </div>
  
 
@@ -35,7 +36,7 @@
         <% if user_signed_in? %>
          <%= form_with(model: [@score, @comment], local: true) do |f| %>
             <div class="field">
-              <%= f.label :text, "コメント" %>
+              <%= f.label :text, "#{@score.user.name}さんのコメント" %>
               <%= f.text_field :text %>
             </div>
             <div class="actions">
@@ -53,6 +54,10 @@
             <% end %> 
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
+
+        
+        
+        
       </div>
     </div>
   </div>
