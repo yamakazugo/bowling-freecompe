@@ -5,21 +5,26 @@
     <%# <div class="title-contents"> %>
     <%# </div> %>
     <div class="card__wrapper">
-
-
+    
+    <% if @scores.empty? %>
+     <h1>おはよう！</h1>
+    <% else %>
      <div class="yama"><h1><%= "今週の第一位#{@scores[0].user.name}さん"%></h1>
      
      <h1 class="yama1"><%= "(#{@scores[0].user.profile.name}所属)" %></h1></div>
-     <h2><%= @scores[2].schedule.name %></h2>
+     <h2><%= @scores[0].schedule.name %></h2>
     <%= link_to image_tag @scores[0].image %><br>  
     
    
       
 
       <h1><%="スコア#{ @scores[0].score }点"%></h1> 
-   
-      </div>
+    <% end %>
+        
+    </div>
   </div>
 
   <h1><%= link_to "🎳スコア一覧🎳" ,scores_path %></h1>
 </main>
+
+
